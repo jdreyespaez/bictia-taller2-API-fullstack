@@ -6,6 +6,13 @@ const express = require('express');
 // este framework para Node.js
 const app = express();
 
+// MANEJANDO PETICIONES
+// Se hace prueba con un GET a nuestra API
+app.get('/api', function(req, res){
+    console.log('Una petición tipo GET');
+    res.send({producto: "Crema para la piel"});
+});
+
 // Escuchando las peticiones, escucharemos las peticiones en
 // el puerto 4000
 app.listen(process.env.port || 4000, function(){
