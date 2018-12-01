@@ -1,0 +1,22 @@
+{
+  "name": "bictia-taller2-api-fullstack",
+  "version": "1.0.0",
+  "description": "API fullstack con Node, Express, Mongo y React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdreyespaez/bictia-taller2-API-fullstack.git"
+  },
+  "author": "jdreyepaez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdreyespaez/bictia-taller2-API-fullstack/issues"
+  },
+  "homepage": "https://github.com/jdreyespaez/bictia-taller2-API-fullstack#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
