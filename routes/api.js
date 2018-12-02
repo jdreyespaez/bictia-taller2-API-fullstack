@@ -45,7 +45,19 @@ router.post('/bluders', function(req, res, next){
 // Actualizar un bluder en la BD
 // se dirige a un end-point con id único
 router.put('/bluders/:id', function(req, res, next){
-    res.send({type: 'PUT'});
+    // Lo que hace el método findOneAndUpdate es actualizar en el segundo parámetro
+    // lo que venga en el body
+    Bluder.findOneAndUpdate({_id: req.params.id}, req.body)
+        // Una vez se complete el método, se ejecutará la siguiente función
+        .then(function(){
+            // OJO: si ponemos el parámetro bluder, nos mostrará el dato antiguo
+            // tendremos pues que buscar el nuevo dato
+            Bluder.findOne({_id: req.params.id}).then(function(bluder){
+                res.send({
+                    bluderActualizado: bluder
+                });
+            });
+        });
 });
 
 // Eliminar un bluder de la BD
