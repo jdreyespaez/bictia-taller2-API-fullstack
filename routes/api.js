@@ -11,6 +11,9 @@ router.get('/bluders', function(req, res){
 
 // Agregar un bluder a la BD
 router.post('/bluders', function(req, res){
+    // Podemos usar .body pues aquí está empaquetado lo que nos 
+    // envía el body-parser
+    console.log(req.body);
     res.send({type: 'POST'});
 });
 
