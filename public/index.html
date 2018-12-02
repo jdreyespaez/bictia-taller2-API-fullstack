@@ -6,19 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BLUD | Encuentra pacientes con cáncer cerca a ti</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
     <h1 class="title">BLUD</h1>
     <div id="homepage">
-        <h2>Encuentra pacientes con cáncer cerca a ti</h2>
-        <div id="bluders">
-        </div>
+        <h1>Encuentra pacientes con cáncer cerca a ti</h1>
+        <!-- Aquí se renderizará el componente -->
+        <div id="bluders"></div>
     </div>
 
     <!-- Dado que es un proyecto básico usaré vía CDN las librerías importadas -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="https://unpkg.com/react@15/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>﻿
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+
+    <!-- Create React Component -->
+    <script type="text/babel">
+        var Bluders = React.createClass({
+                getInitialState: function(){
+                    return({
+                        bluders: []
+                    });
+                },
+                render: function(){
+                    // Aquí es donde se actualiza cuando entra al State y renderiza
+                    // los ul tags de abajo
+                    var bluders = this.state.bluders;
+                    // Se mapean en el HTML -> <ul>{bluders}</ul>
+                    bluders = bluders.map(function(bluder, index){
+                        return(
+                            // React usa key para identificar lo que viene del JSON
+                            <li key={index}>
+                                <span className={bluder.disponible}></span>
+                                <span className="nombre">{bluder.nombre}</span>
+                                <span className="diagnostico">{bluder.diagnostico}</span>
+                                <span className="dist">{Math.floor(bluder.dis / 1000)} km</span>
+                            </li>
+                        );
+                    });
+                    return(
+                        <div id="bluder-container">
+                            <form id="search" onSubmit={this.handleSubmit}>
+                                <label>Ingresa la Longitud:</label>
+                                <input type="text" ref="lng" placeholder="longitud" required />
+                                <label>Ingresa la Latitud:</label>
+                                <input type="text" ref="lat" placeholder="latitud" required />
+                                <input type="submit" value="Buscar Bluders" />
+                            </form>
+                            <ul>{bluders}</ul>
+                        </div>
+                    );
+                },
+                handleSubmit: function(e){
+                    e.preventDefault();
+                    // Usando los ref del input llamamos esos datos del form
+                    var lng = this.refs.lng.value;
+                    var lat = this.refs.lat.value;
+                    // Este método hará el GET de lng y lat
+                    fetch('/api/bluders?lng=' + lng + '&lat=' + lat)
+                    // Sólo hasta que se complete la query me cumple la siguiente promesa:
+                    .then(function(data){
+                        return data.json();
+                    })
+                    // Vamos a cambiar el State directamente con lo que viene de la promesa anterior
+                    .then( json => {
+                        this.setState({
+                            // El State será lo que vendrá del JSON
+                            bluders: json
+                        });
+                        console.log(json);
+                    });
+                }
+            });
+            ReactDOM.render(<Bluders />, document.getElementById('bluders'));
+        </script>
+
+
 </body>
 </html>

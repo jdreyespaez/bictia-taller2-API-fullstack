@@ -31,9 +31,7 @@ router.get('/bluders', function(req, res, next){
         // Aquí disparamos una función cuando se complete la query anterior, 
         // mediante una promesa
         .then(function(bluders){
-            res.send({
-                bludersCercanos: bluders
-            });
+            res.send(bluders);
         })
 });
 
