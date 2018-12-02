@@ -49,9 +49,19 @@ router.put('/bluders/:id', function(req, res, next){
 });
 
 // Eliminar un bluder de la BD
-// se dirige a un end-point con id único
+// se dirige a un end-point con id único, nos referimos a un parámetro de la ruta
 router.delete('/bluders/:id', function(req, res, next){
-    res.send({type: 'DELETE'});
+    // Dado que es un parámetro se puede pedir a .params.id
+    // Usaremos el métido de mongoose .findByIdAndRemove(), lo buscamos en mongo como
+    // _id: req.params.id
+    Bluder.findOneAndDelete({_id: req.params.id})
+        // La promesa que se muestra únicamente cuando borró el elmemento nos
+        // responde con el objeto eliminado
+        .then(function(bluder){
+            res.send({
+                bluderEliminado: bluder
+            });
+        });
 });
 
 // Estas rutas deben ser manejadas desde la app en su index.js
