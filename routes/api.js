@@ -22,6 +22,7 @@ router.get('/bluders', function(req, res, next){
             'coordinates': [parseFloat(req.query.lng), parseFloat(req.query.lat)]
         },
         // Buscaremos pacientes que estén en un radio de X metros
+        // En este caso: 4km
         maxDistance: 4000,
         // Se busca en un círculo
         spherical: true,
