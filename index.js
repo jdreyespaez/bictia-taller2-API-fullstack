@@ -1,16 +1,25 @@
 // Requerimos Express como una var constante, no usaremos ES6
 const express = require('express');
 
-// Dado que el manjeador de rutas está en api.js, lo requerimos
-const routes = require('./routes/api');
+// Usaremos esta dependencia para que encuentra la BD a conectarse
+const mongoose = require('mongoose');
 
 // Agregamos la dependencia que nos ayuda a parsear las reqs
 const bodyParser = require('body-parser');
+
+// Dado que el manjeador de rutas está en api.js, lo requerimos
+const routes = require('./routes/api');
 
 // El producto se llamará app y desde ahí se inicializará el
 // servidor en Express.js, aquí sucede mucha de la magia de
 // este framework para Node.js
 const app = express();
+
+// Conectándode a mongodb, si no existe la crea
+mongoose.connect('mongodb://localhost/blud-bictia');
+// Es necesario conectar las promesas de mongoose al objeto global,
+// puesto que las promesas de éste están 'deprecated'
+mongoose.Promise = global.Promise;
 
 // OJO: Debe ser antes del handle router, usaremos JSON
 app.use(bodyParser.json())
