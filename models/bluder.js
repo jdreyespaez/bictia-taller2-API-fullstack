@@ -2,6 +2,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Se crea el Schema para la ubicación geográfica
+const GeoSchema = new Schema({
+    type: {
+        type: String,
+        default: "Point"
+    },
+    coordinates: {
+        type: [Number],
+        // MongoDB usará la ubicación como el mundo y su curvatura
+        index: "2dsphere"
+    }
+});
+
 // Se crea el modelo y Schema para los bluders
 const BluderSchema = new Schema({
     // Información básica del BLUDER
@@ -16,9 +29,11 @@ const BluderSchema = new Schema({
     disponible: {
         type: Boolean,
         default: false
-    }
-
-    // Ubicación geográfica del BLUDER
+    },
+    // Ubicación geográfica del bluder
+    // Por organización llamará este Schema del GeoSchema
+    // Esta propiedad 'geometry' es propia de geojson.org
+    geometry: GeoSchema
 
 });
 
