@@ -9,7 +9,31 @@ const Bluder = require('../models/bluder');
 
 // Hacer un GET de la lista de pacientes (bluders) de la BD
 router.get('/bluders', function(req, res, next){
-    res.send({type: 'GET'});
+    // Una forma de pedir todos los bluders sería
+    /* Bluder.find({}).then(function(bluders){
+        res.send(bluders);
+    }); */
+    // Pero queremos pedir aquellos que estén en un rango determinado
+    // Vamos a usar URL Params, no req.params.id
+    Bluder.aggregate().near({
+        near: {
+            'type': 'Point',
+            // Con parseFloat recibimos los números en el formato adecuado
+            'coordinates': [parseFloat(req.query.lng), parseFloat(req.query.lat)]
+        },
+        // Buscaremos pacientes que estén en un radio de X metros
+        maxDistance: 4000,
+        // Se busca en un círculo
+        spherical: true,
+        distanceField: "dis"
+    })
+        // Aquí disparamos una función cuando se complete la query anterior, 
+        // mediante una promesa
+        .then(function(bluders){
+            res.send({
+                bludersCercanos: bluders
+            });
+        })
 });
 
 // Agregar un bluder a la BD
