@@ -8,12 +8,12 @@ const router = express.Router();
 const Bluder = require('../models/bluder');
 
 // Hacer un GET de la lista de pacientes (bluders) de la BD
-router.get('/bluders', function(req, res){
+router.get('/bluders', function(req, res, next){
     res.send({type: 'GET'});
 });
 
 // Agregar un bluder a la BD
-router.post('/bluders', function(req, res){
+router.post('/bluders', function(req, res, next){
     // Podemos usar .body pues aquí está empaquetado lo que nos 
     // envía el body-parser
 
@@ -38,19 +38,19 @@ router.post('/bluders', function(req, res){
     Bluder.create(req.body).then(function(bluder){
         // Regresaremos lo que se guardó en la DB
         res.send(bluder);
-    });
+    }).catch(next);
 
 });
 
 // Actualizar un bluder en la BD
 // se dirige a un end-point con id único
-router.put('/bluders/:id', function(req, res){
+router.put('/bluders/:id', function(req, res, next){
     res.send({type: 'PUT'});
 });
 
 // Eliminar un bluder de la BD
 // se dirige a un end-point con id único
-router.delete('/bluders/:id', function(req, res){
+router.delete('/bluders/:id', function(req, res, next){
     res.send({type: 'DELETE'});
 });
 
