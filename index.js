@@ -16,7 +16,7 @@ const routes = require('./routes/api');
 const app = express();
 
 // Conectándode a mongodb, si no existe la crea
-mongoose.connect('mongodb://localhost/blud-bictia');
+mongoose.connect('mongodb://localhost/blud-bictia', {useNewUrlParser: true});
 // Es necesario conectar las promesas de mongoose al objeto global,
 // puesto que las promesas de éste están 'deprecated'
 mongoose.Promise = global.Promise;
