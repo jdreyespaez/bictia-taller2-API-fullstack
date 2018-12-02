@@ -21,6 +21,10 @@ mongoose.connect('mongodb://localhost/blud-bictia', {useNewUrlParser: true});
 // puesto que las promesas de éste están 'deprecated'
 mongoose.Promise = global.Promise;
 
+// Un MIDDLEWARE para servir los archivos estáticos
+// Usando Express.js vamos a buscar en 'public' los archivos que estén ahí
+app.use(express.static('public'));
+
 // OJO: Debe ser antes del handle router, usaremos JSON
 app.use(bodyParser.json());
 
