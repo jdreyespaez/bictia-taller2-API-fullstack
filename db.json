@@ -1,0 +1,74 @@
+
+{
+    "nombre": "Ricardo A. Reyes P.",
+    "diagnostico": "Leucemia Mieloide Aguda",
+    "disponible": true,
+    "geometry": {
+        "type": "Point",
+        "coordinates": [4.660621, -74.103641]
+    }
+}
+
+{
+    "nombre": "Byron Rodríguez",
+    "diagnostico": "Leucemia Mieloide Aguda",
+    "disponible": true,
+    "geometry": {
+        "type": "Point",
+        "coordinates": [4.693401, -74.072152]
+    }
+}
+
+{
+    "nombre": "Lina Díaz",
+    "diagnostico": "Leucemia Linfoblástica Aguda",
+    "disponible": true,
+    "geometry": {
+        "type": "Point",
+        "coordinates": [4.625602, -74.129396]
+    }
+}
+
+{
+    "nombre": "Daniel Moreno",
+    "diagnostico": "Leucemia Linfoblástica Aguda",
+    "disponible": true,
+    "geometry": {
+        "type": "Point",
+        "coordinates": [4.538503, -74.113843]
+    }
+}
+
+{
+    "nombre": "Martha Tavera",
+    "diagnostico": "Leucemia Linfoblástica Aguda",
+    "disponible": false,
+    "geometry": {
+        "type": "Point",
+        "coordinates": [4.628904, -74.060214]
+    }
+}
+
+
+{
+    "nombre": "Alejandro Gaviria",
+    "diagnostico": "Linfoma de No-Hodgking",
+    "disponible": false,
+    "geometry": {
+        "type": "Point",
+        "coordinates": [4.661436, -74.048545]
+    }
+}
+
+{
+    "nombre": "Margarita Rojas",
+    "diagnostico": "Leucemia Linfoblástica Crónica",
+    "disponible": true,
+    "geometry": {
+        "type": "Point",
+        "coordinates": [4.744254, -74.035016]
+    }
+}
+
+
+
