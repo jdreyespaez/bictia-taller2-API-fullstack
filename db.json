@@ -1,74 +1,88 @@
-
+// Sala 1
 {
-    "nombre": "Ricardo A. Reyes P.",
-    "diagnostico": "Leucemia Mieloide Aguda",
-    "disponible": true,
-    "geometry": {
-        "type": "Point",
-        "coordinates": [4.660621, -74.103641]
-    }
+    "direccion": {
+        "lat": -73.856077, 
+        "lng": 40.848447,
+        "localidad": "Usaquén",
+        "barrio": "Cabrera"
+    },
+    "salas": 11,
+    "nombre": "Cine Colombia Andino",
+    "peliculas": [
+        { "nombre": "Bohemian Rhapsody", "idioma": "ingles", "estrellas": 5 },
+        { "nombre": "El Grinch", "idioma": "ingles", "estrellas": 3 },
+        { "nombre": "Robin Hood", "idioma": "espanol", "estrellas": 4 },
+        { "nombre": "Malicious", "idioma": "espanol", "estrellas": 2 }    
+        ]
 }
 
+// Sala 2
 {
-    "nombre": "Byron Rodríguez",
-    "diagnostico": "Leucemia Mieloide Aguda",
-    "disponible": true,
-    "geometry": {
-        "type": "Point",
-        "coordinates": [4.693401, -74.072152]
-    }
+    "direccion": {
+        "lat": -73.856077, 
+        "lng": 40.848447,
+        "localidad": "Engativá",
+        "barrio": "Salitre"
+    },
+    "salas": 7,
+    "nombre": "Procinal Salitre Plaza",
+    "peliculas": [
+        { "nombre": "Bohemian Rhapsody", "idioma": "ingles", "estrellas": 5 },
+        { "nombre": "El Grinch", "idioma": "ingles", "estrellas": 3 },
+        { "nombre": "Robin Hood", "idioma": "espanol", "estrellas": 4 },
+        { "nombre": "Malicious", "idioma": "espanol", "estrellas": 2 },
+        { "nombre": "Viudas", "idioma": "espanol", "estrellas": 5 }
+    ]
 }
 
+// Sala 3
 {
-    "nombre": "Lina Díaz",
-    "diagnostico": "Leucemia Linfoblástica Aguda",
-    "disponible": true,
-    "geometry": {
-        "type": "Point",
-        "coordinates": [4.625602, -74.129396]
-    }
+    "direccion": {
+        "lat": -73.8077, 
+        "lng": 42.8447,
+        "localidad": "Engativá",
+        "barrio": "Salitre"
+    },
+    "salas": 7,
+    "nombre": "Cine Colombia Gran Estación",
+    "peliculas": [
+        { "nombre": "JLo 2", "idioma": "ingles", "estrellas": 1 },
+        { "nombre": "Pájaros", "idioma": "espanol", "estrellas": 5 },
+        { "nombre": "La Negociación", "idioma": "espanol", "estrellas": 4.5 }
+    ]
 }
 
+// Sala 4
 {
-    "nombre": "Daniel Moreno",
-    "diagnostico": "Leucemia Linfoblástica Aguda",
-    "disponible": true,
-    "geometry": {
-        "type": "Point",
-        "coordinates": [4.538503, -74.113843]
-    }
+    "direccion": {
+        "lat": -70.8077, 
+        "lng": 4.8447,
+        "localidad": "Chapinero",
+        "barrio": "Porciúncula"
+    },
+    "salas": 7,
+    "nombre": "Cine Colombia Av.Chile",
+    "peliculas": [
+        { "nombre": "La vida misma", "idioma": "frances", "estrellas": 1.8 },
+        { "nombre": "Pájaros", "idioma": "espanol", "estrellas": 5 },
+        { "nombre": "La Negociación", "idioma": "espanol", "estrellas": 4.5 }
+    ]
 }
 
+// Sala 5
 {
-    "nombre": "Martha Tavera",
-    "diagnostico": "Leucemia Linfoblástica Aguda",
-    "disponible": false,
-    "geometry": {
-        "type": "Point",
-        "coordinates": [4.628904, -74.060214]
-    }
+    "direccion": {
+        "lat": -70.8077, 
+        "lng": 4.8447,
+        "localidad": "Suba",
+        "barrio": "Colina"
+    },
+    "salas": 7,
+    "nombre": "Cine Colombia Colina",
+    "peliculas": [
+        { "nombre": "JLo 2", "idioma": "ingles", "estrellas": 1 },
+        { "nombre": "Bohemian Rhapsody", "idioma": "ingles", "estrellas": 5 },
+        { "nombre": "La Negociación", "idioma": "espanol", "estrellas": 4.5 },
+        { "nombre": "Bohemian Rhapsody", "idioma": "ingles", "estrellas": 5 }
+    ]
 }
-
-
-{
-    "nombre": "Alejandro Gaviria",
-    "diagnostico": "Linfoma de No-Hodgking",
-    "disponible": false,
-    "geometry": {
-        "type": "Point",
-        "coordinates": [4.661436, -74.048545]
-    }
-}
-
-{
-    "nombre": "Margarita Rojas",
-    "diagnostico": "Leucemia Linfoblástica Crónica",
-    "disponible": true,
-    "geometry": {
-        "type": "Point",
-        "coordinates": [4.744254, -74.035016]
-    }
-}
-
-
-

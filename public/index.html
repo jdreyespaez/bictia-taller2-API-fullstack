@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<<<<<<< HEAD
     <title>BLUDERS</title>
+=======
+    <title>Salas de Cine</title>
+>>>>>>> 4ac27e0633af36a70588cd6c164e19e9609e036e
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
+<<<<<<< HEAD
     <h1 class="title">BLUDERS</h1>
     <div id="homepage">
         <h1>Search for cancer patients close to your location</h1>
+=======
+    <h1 class="title">Salas</h1>
+    <div id="homepage">
+        <h1>Encuentra salas de cine</h1>
+>>>>>>> 4ac27e0633af36a70588cd6c164e19e9609e036e
         <!-- Aquí se renderizará el componente -->
-        <div id="bluders"></div>
+        <div id="salas"></div>
     </div>
 
     <!-- Dado que es un proyecto básico usaré vía CDN las librerías importadas -->
@@ -23,48 +33,48 @@
 
     <!-- Create React Component -->
     <script type="text/babel">
-        var Bluders = React.createClass({
+        var Salas = React.createClass({
                 getInitialState: function(){
                     return({
-                        bluders: []
+                        salas: []
                     });
                 },
                 render: function(){
                     // Aquí es donde se actualiza cuando entra al State y renderiza
                     // los ul tags de abajo
-                    var bluders = this.state.bluders;
-                    // Se mapean en el HTML -> <ul>{bluders}</ul>
-                    bluders = bluders.map(function(bluder, index){
+                    var salas = this.state.salas;
+                    // Se mapean en el HTML -> <ul>{salas}</ul>
+                    salas = salas.map(function(sala, index){
                         return(
                             // React usa key para identificar lo que viene del JSON
                             <li key={index}>
-                                <span className={bluder.disponible}></span>
-                                <span className="nombre">{bluder.nombre}</span>
-                                <span className="diagnostico">{bluder.diagnostico}</span>
-                                <span className="dist">{Math.floor(bluder.dis / 1000)} km</span>
+                                <span className="nombre">{sala.nombre}</span>
+                                <span className="localidad">{sala.direccion.localidad}</span>
+                                <span className="salas">{sala.salas}</span>
                             </li>
                         );
                     });
                     return(
-                        <div id="bluder-container">
+                        <div id="sala-container">
                             <form id="search" onSubmit={this.handleSubmit}>
+<<<<<<< HEAD
                                 <label>Enter Longitud:</label>
                                 <input type="text" ref="lng" placeholder="longitud" required />
                                 <label>Enter Latitud:</label>
                                 <input type="text" ref="lat" placeholder="latitud" required />
                                 <input type="submit" value="Search Bluders" />
+=======
+                                <input type="submit" value="Buscar salas" />
+>>>>>>> 4ac27e0633af36a70588cd6c164e19e9609e036e
                             </form>
-                            <ul>{bluders}</ul>
+                            <ul>{salas}</ul>
                         </div>
                     );
                 },
                 handleSubmit: function(e){
                     e.preventDefault();
-                    // Usando los ref del input llamamos esos datos del form
-                    var lng = this.refs.lng.value;
-                    var lat = this.refs.lat.value;
-                    // Este método hará el GET de lng y lat
-                    fetch('/api/bluders?lng=' + lng + '&lat=' + lat)
+                    // Este método hará el GET de todas las salas
+                    fetch('/api/salas')
                     // Sólo hasta que se complete la query me cumple la siguiente promesa:
                     .then(function(data){
                         return data.json();
@@ -73,13 +83,13 @@
                     .then( json => {
                         this.setState({
                             // El State será lo que vendrá del JSON
-                            bluders: json
+                            salas: json
                         });
                         console.log(json);
                     });
                 }
             });
-            ReactDOM.render(<Bluders />, document.getElementById('bluders'));
+            ReactDOM.render(<Salas />, document.getElementById('salas'));
         </script>
 
 
