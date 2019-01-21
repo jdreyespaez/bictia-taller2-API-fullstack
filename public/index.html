@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BLUD | Encuentra pacientes con cáncer cerca a ti</title>
+    <title>BLUDERS</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-    <h1 class="title">BLUD</h1>
+    <h1 class="title">BLUDERS</h1>
     <div id="homepage">
-        <h1>Encuentra pacientes con cáncer cerca a ti</h1>
+        <h1>Search for cancer patients close to your location</h1>
         <!-- Aquí se renderizará el componente -->
         <div id="bluders"></div>
     </div>
@@ -48,11 +48,11 @@
                     return(
                         <div id="bluder-container">
                             <form id="search" onSubmit={this.handleSubmit}>
-                                <label>Ingresa la Longitud:</label>
+                                <label>Enter Longitud:</label>
                                 <input type="text" ref="lng" placeholder="longitud" required />
-                                <label>Ingresa la Latitud:</label>
+                                <label>Enter Latitud:</label>
                                 <input type="text" ref="lat" placeholder="latitud" required />
-                                <input type="submit" value="Buscar Bluders" />
+                                <input type="submit" value="Search Bluders" />
                             </form>
                             <ul>{bluders}</ul>
                         </div>
